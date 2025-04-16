@@ -46,7 +46,7 @@ A full-stack web application to help users track their personal finances. Built 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/personal-finance-visualizer.git
+git clone https://github.com/SagarMaddela/Personal-Finance-Visualizer.git
 cd personal-finance-visualizer
 ```
 
@@ -54,7 +54,8 @@ cd personal-finance-visualizer
 
 ```bash
 cd backend
-npm install
+npm init -y
+npm install express mongoose cors dotenv
 # Create .env file with:
 # MONGO_URI = your_mongo_connection_string
 npm run dev
@@ -63,8 +64,9 @@ npm run dev
 ### 3. Frontend Setup
 
 ```bash
-cd ../frontend
+cd ../client
 npm install
+npm install recharts axios react-router-dom
 npm run dev
 ```
 
