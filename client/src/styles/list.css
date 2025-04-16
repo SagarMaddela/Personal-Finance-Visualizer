@@ -1,0 +1,46 @@
+.list-container {
+    margin-top: 2rem;
+  }
+  
+  .transaction-list {
+    list-style: none;
+    padding: 1rem;
+    background-color: aliceblue;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .transaction-list-container {
+    overflow-y: scroll;
+    height: 75vh;
+    background-color: aliceblue;
+  }
+
+  .transaction-list-container::-webkit-scrollbar {
+    display: none;
+}
+  
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: aliceblue;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+  
+  .transaction-item-btn-group {
+    display: flex;
+    gap: 15px;
+  }
+
+  .transaction-item button {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
