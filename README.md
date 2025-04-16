@@ -7,7 +7,7 @@ A full-stack web application to help users track their personal finances. Built 
 ## 🚀 Live Demo
 
 - **Frontend (Vercel)**: [https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/](https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/)
-- **Backend (Render)**: [https://your-backend.onrender.com](https://your-backend.onrender.com)
+- **Backend (Render)**: [https://personal-finance-visualizer-api.onrender.com](https://personal-finance-visualizer-api.onrender.com)
 
 > Replace the above links with your actual deployed URLs
 

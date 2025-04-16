@@ -45,10 +45,10 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
 
     try {
       if (editingData) {
-        await axios.put(`http://localhost:5000/api/transactions/${editingData._id}`, formData);
+        await axios.put(`https://personal-finance-visualizer-api.onrender.com/api/transactions/${editingData._id}`, formData);
         setEditingData(null);
       } else {
-        await axios.post("http://localhost:5000/api/transactions", formData);
+        await axios.post("https://personal-finance-visualizer-api.onrender.com/api/transactions", formData);
       }
 
       setFormData({ description: "", amount: "", date: "" });

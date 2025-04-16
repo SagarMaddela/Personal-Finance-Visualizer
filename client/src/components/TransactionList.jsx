@@ -3,7 +3,7 @@ import "../styles/list.css";
 
 export default function TransactionList({ transactions, fetchTransactions, setEditingData }) {
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+    await axios.delete(`https://personal-finance-visualizer-api.onrender.com/api/transactions/${id}`);
     fetchTransactions();
   };
 
