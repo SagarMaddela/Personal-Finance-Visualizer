@@ -6,7 +6,7 @@ A full-stack web application to help users track their personal finances. Built 
 
 ## 🚀 Live Demo
 
-- **Frontend (Vercel)**: [https://your-frontend.vercel.app](https://your-frontend.vercel.app)
+- **Frontend (Vercel)**: [https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/](https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/)
 - **Backend (Render)**: [https://your-backend.onrender.com](https://your-backend.onrender.com)
 
 > Replace the above links with your actual deployed URLs
@@ -64,7 +64,7 @@ npm run dev
 ### 3. Frontend Setup
 
 ```bash
-cd ../client
+cd ../clien
 npm install
 npm install recharts axios react-router-dom
 npm run dev
