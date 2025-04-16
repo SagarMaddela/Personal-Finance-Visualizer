@@ -11,18 +11,21 @@ export default function TransactionList({ transactions, fetchTransactions, setEd
     <div className="transaction-list">
       <h2>Transactions</h2>
       <div className="transaction-list-container">
-      {transactions.map((txn) => (
-        <div key={txn._id} className="transaction-item">
-          <div>
-            <strong>{txn.description}</strong> - ₹{txn.amount} on{" "}
-            {new Date(txn.date).toLocaleDateString()}
+        {transactions.map((txn) => (
+          <div key={txn._id} className="transaction-item">
+            <div>
+              <strong>{txn.description}</strong> - ₹{txn.amount} on{" "}
+              {new Date(txn.date).toLocaleDateString()}
+              <div className="transaction-category">
+                <em>Category:</em> {txn.category}
+              </div>
+            </div>
+            <div className="transaction-item-btn-group">
+              <button onClick={() => setEditingData(txn)}>Edit</button>
+              <button onClick={() => handleDelete(txn._id)}>Delete</button>
+            </div>
           </div>
-          <div className="transaction-item-btn-group">
-            <button onClick={() => setEditingData(txn)}>Edit</button>
-            <button onClick={() => handleDelete(txn._id)}>Delete</button>
-          </div>
-        </div>
-      ))}
+        ))}
       </div>
     </div>
   );

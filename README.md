@@ -22,6 +22,8 @@ A full-stack web application to help users track their personal finances. Built 
 - ✅ RESTful API built with Express and MongoDB Atlas
 - ✅ Responsive design with clean UI
 
+![alt screenshot-stage-1](image.png)
+
 ---
 
 ## 💠 Tech Stack

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TransactionList from "../components/TransactionList";
 import ExpenseChart from "../components/ExpenseChart";
-import TransactionForm from "../components/TransactionForm"
+import TransactionForm from "../components/TransactionForm";
 import "../index.css";
 
 export default function Home() {

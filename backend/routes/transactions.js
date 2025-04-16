@@ -23,25 +23,30 @@ router.get("/:id", async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-  const { description, amount, date } = req.body;
-  const newTransaction = new Transaction({ description, amount, date });
-  await newTransaction.save();
-  res.json(newTransaction);
+  try {
+    const { description, amount, date, category } = req.body;
+    console.log("Incoming transaction:", req.body);
+
+    const transaction = new Transaction({ description, amount, date, category });
+    await transaction.save();
+    res.status(201).json(transaction);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create transaction' });
+  }
 });
 
 router.put('/:id', async (req, res) => {
-  const { id } = req.params;
-  const { description, amount, date } = req.body;
-
   try {
+    const { description, amount, date, category } = req.body;
+    console.log("Incoming transaction:", req.body);
     const updated = await Transaction.findByIdAndUpdate(
-      id,
-      { description, amount, date },
+      req.params.id,
+      { description, amount, date, category },
       { new: true }
     );
     res.json(updated);
   } catch (err) {
-    res.status(500).json({ error: "Update failed" });
+    res.status(500).json({ error: 'Failed to update transaction' });
   }
 });
 

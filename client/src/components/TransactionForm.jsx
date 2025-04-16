@@ -4,10 +4,12 @@ import "../styles/form.css";
 
 export default function TransactionForm({ fetchTransactions, editingData, setEditingData }) {
   const [formData, setFormData] = useState({
-    description: "",
-    amount: "",
-    date: ""
+    amount: '',
+    description: '',
+    date: '',
+    category: '',
   });
+  
 
   const [error, setError] = useState("");
 
@@ -17,6 +19,7 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
         description: editingData.description,
         amount: editingData.amount,
         date: editingData.date.slice(0, 10),
+        category: editingData.category,
       });
     }
   }, [editingData]);
@@ -30,10 +33,14 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { description, amount, date } = formData;
+    const { description, amount, date, category } = formData;
+
+    const requestBody = { description, amount, date, category };
+    console.log("Submitting transaction:", requestBody);
+
 
     // Validation
-    if (!description || !amount || !date) {
+    if (!description || !amount || !date || !category) {
       setError("Please fill out all fields.");
       return;
     }
@@ -51,7 +58,7 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
         await axios.post("https://personal-finance-visualizer-api.onrender.com/api/transactions", formData);
       }
 
-      setFormData({ description: "", amount: "", date: "" });
+      setFormData({ description: "", amount: "", date: "", category: "" });
       fetchTransactions();
     } catch (err) {
       console.error("Error submitting form", err);
@@ -83,6 +90,21 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
         value={formData.date}
         onChange={handleChange}
       />
+      <label>Category:</label>
+      <select
+        value={formData.category}
+        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+        required
+      >
+        <option value="">Select</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Bills">Bills</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Other">Other</option>
+      </select>
+
       <button type="submit">{editingData ? "Update" : "Add"} Transaction</button>
     </form>
     </div>
