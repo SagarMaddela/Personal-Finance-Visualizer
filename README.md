@@ -1,6 +1,8 @@
-# 💰 Personal Finance Visualizer
+##💸 Personal Finance Visualizer
 
-A full-stack web application to help users track their personal finances. Built with React, Express.js, MongoDB, and Recharts. This submission covers **Stage 1: Basic Transaction Tracking** of the assignment.
+A full-stack web application that helps users track transactions, set budgets per category, and visualize spending trends. This project was built as part of a full-stack internship assignment and includes interactive charts, real-time data visualization, and MongoDB integration.
+
+
 
 ---
 
@@ -9,21 +11,39 @@ A full-stack web application to help users track their personal finances. Built 
 - **Frontend (Vercel)**: [https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/](https://personal-finance-visualizer-sagarmaddelas-projects.vercel.app/)
 - **Backend (Render)**: [https://personal-finance-visualizer-api.onrender.com](https://personal-finance-visualizer-api.onrender.com)
 
-> Replace the above links with your actual deployed URLs
 
 ---
 
-## 📌 Features - Stage 1
+📌 Features
 
-- ✅ Add, edit, delete transactions (amount, date, description)
-- ✅ Transaction list view
-- ✅ Monthly expenses bar chart
-- ✅ Basic form validation (including prevention of negative values)
-- ✅ RESTful API built with Express and MongoDB Atlas
-- ✅ Responsive design with clean UI
+🔹 Dashboard Page
+
+🥧 Category-wise Pie Chart
+
+🢾 Most Recent 5 Transactions
+
+💸 Total Expenses (for the current month)
+
+🔹 Transactions Page
+📊 Expense Line Chart
+
+➕ Add new transactions
+
+📃 View all transactions
+
+🔹 Budgeting Page
+
+📂 View and edit budgets by category
+
+📈 Compare actual spending vs. budget
+
+💡 Insights on Overspending and Savings
 
 ![alt screenshot-stage-1](image.png)
 
+![alt screenshot-stage-1](image.png)
+
+![alt screenshot-stage-1](image.png)
 ---
 
 ## 💠 Tech Stack
@@ -88,15 +108,6 @@ personal-finance-visualizer/
 │   ├── routes/
 │   └── server.js
 ```
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of:
-- Add/Edit Transaction form
-- Transaction list
-- Expense chart
 
 ---
 
