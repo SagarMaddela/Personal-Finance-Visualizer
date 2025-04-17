@@ -39,11 +39,11 @@ A full-stack web application that helps users track transactions, set budgets pe
 
 💡 Insights on Overspending and Savings
 
-![alt screenshot-stage-1](image.png)
+(![alt dashboard](image-1.png))
 
-![alt screenshot-stage-1](image.png)
+![alt Transactions](image-2.png)
 
-![alt screenshot-stage-1](image.png)
+![alt Budgeting](image-3.png)
 ---
 
 ## 💠 Tech Stack
