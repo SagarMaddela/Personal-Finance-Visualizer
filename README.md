@@ -1,4 +1,4 @@
-##💸 Personal Finance Visualizer
+💸 Personal Finance Visualizer
 
 A full-stack web application that helps users track transactions, set budgets per category, and visualize spending trends. This project was built as part of a full-stack internship assignment and includes interactive charts, real-time data visualization, and MongoDB integration.
 
@@ -97,16 +97,57 @@ npm run dev
 ## 📂 Folder Structure
 
 ```
-personal-finance-visualizer/
-├── frontend/
-│   ├── components/
-│   ├── pages/
-│   ├── styles/
-│   └── main.jsx
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
+YardStick/
+├─ backend/
+│  ├─ models/
+│  │  ├─ Budget.js
+│  │  └─ Transaction.js
+│  ├─ routes/
+│  │  ├─ budjets.js
+│  │  └─ transactions.js
+│  ├─ .env
+│  ├─ package-lock.json
+│  ├─ package.json
+│  └─ server.js
+├─ client/
+│  ├─ public/
+│  │  └─ vite.svg
+│  ├─ src/
+│  │  ├─ assets/
+│  │  │  └─ react.svg
+│  │  ├─ components/
+│  │  │  ├─ ExpenseChart.jsx
+│  │  │  ├─ Navbar.jsx
+│  │  │  ├─ PieChart.jsx
+│  │  │  ├─ TransactionForm.jsx
+│  │  │  └─ TransactionList.jsx
+│  │  ├─ pages/
+│  │  │  ├─ BudgetingPage.jsx
+│  │  │  ├─ Dashboard.jsx
+│  │  │  └─ Home.jsx
+│  │  ├─ styles/
+│  │  │  ├─ budget.css
+│  │  │  ├─ chart.css
+│  │  │  ├─ dashboard.css
+│  │  │  ├─ form.css
+│  │  │  ├─ list.css
+│  │  │  └─ navbar.css
+│  │  ├─ App.css
+│  │  ├─ App.jsx
+│  │  ├─ index.css
+│  │  └─ main.jsx
+│  ├─ .gitignore
+│  ├─ eslint.config.js
+│  ├─ index.html
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ README.md
+│  └─ vite.config.js
+├─ .gitignore
+├─ image.png
+├─ LICENSE
+└─ README.md
+
 ```
 
 ---
