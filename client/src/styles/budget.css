@@ -1,0 +1,96 @@
+.budget-container {
+    padding: 30px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+.budget-top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8vh;
+  }
+
+.budget-editor {
+  display: flex;
+  flex-direction: row;
+  height: 35vh;
+  width:35vw;
+  border-radius: 8px;
+  background-color: aliceblue;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+  
+.current-budgets {
+  margin-left: 50px;
+}
+  
+.current-budgets ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .current-budgets li {
+    margin: 15px 0;
+  }
+  
+  .budget-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+
+  
+  .budget-form select,
+  .budget-form input {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  
+  .budget-form button {
+    padding: 8px 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .budget-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .budget-insights ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .insights-container {
+    background-color: antiquewhite;
+    height: 35vh;
+    width: 35vw;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .split-insights {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+  .split-insights div {
+    flex: 1;
+  }
+  
+  .split-insights ul {
+    padding-left: 20px;
+  }
+  

@@ -1,0 +1,54 @@
+/* Container holding entire navbar */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    width: 15vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    top: 0;
+  }
+  
+  /* Title at top */
+  .navbar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f4f4f4;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Link container */
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Each link */
+  .nav-link {
+    color: #c0c0c0;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  /* On hover */
+  .nav-link:hover {
+    background-color: #2d2d44;
+    color: #ffffff;
+  }
+  
+  /* When active */
+  .nav-link.active {
+    background-color: #4c60ff;
+    color: white;
+  }
+  

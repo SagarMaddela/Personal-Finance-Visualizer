@@ -10,7 +10,7 @@ export default function Home() {
   const [editingData, setEditingData] = useState(null);
 
   const fetchTransactions = async () => {
-    const res = await axios.get("https://personal-finance-visualizer-api.onrender.com/api/transactions");
+    const res = await axios.get("https://https://personal-finance-visualizer-api.onrender.com/api/transactions");
     setTransactions(res.data);
   };
 
