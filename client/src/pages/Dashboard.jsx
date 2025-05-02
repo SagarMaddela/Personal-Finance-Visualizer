@@ -42,6 +42,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <h1>DASHBOARD</h1>
+      <h2> Please wait a minute before the transactions get loaded </h2>
       <div className="dashboard-top-container">
         <div className="expense-summary">
             <h2>Total Expenses</h2>
