@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../api";
 import "../styles/form.css";
 
 export default function TransactionForm({ fetchTransactions, editingData, setEditingData }) {
@@ -52,10 +52,10 @@ export default function TransactionForm({ fetchTransactions, editingData, setEdi
 
     try {
       if (editingData) {
-        await axios.put(`https://personal-finance-visualizer-api.onrender.com/api/transactions/${editingData._id}`, formData);
+        await api.put(`/transactions/${editingData._id}`, formData);
         setEditingData(null);
       } else {
-        await axios.post("https://personal-finance-visualizer-api.onrender.com/api/transactions", formData);
+        await api.post("/transactions", formData);
       }
 
       setFormData({ description: "", amount: "", date: "", category: "" });

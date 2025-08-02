@@ -9,6 +9,7 @@ export default function Navbar() {
         <NavLink to="/" className="nav-link">Dashboard</NavLink>
         <NavLink to="/transactions" className="nav-link">Transactions</NavLink>
         <NavLink to="/budgeting" className="nav-link">Budgeting</NavLink>
+        <NavLink to="/income" className="nav-link">Income</NavLink>
       </nav>
     </div>
   );

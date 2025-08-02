@@ -3,6 +3,7 @@ import DashboardPage from "./pages/Dashboard";
 import TransactionsPage from "./pages/Home"; 
 import Navbar from "./components/Navbar";
 import BudgetingPage from "./pages/BudgetingPage";
+import IncomePage from "./pages/IncomePage";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/transactions" element={<TransactionsPage />} />
-          <Route path="/budgeting" element={<BudgetingPage />} /> 
+          <Route path="/budgeting" element={<BudgetingPage />} />
+          <Route path="/income" element={<IncomePage />} />
         </Routes>
       </div>
     </>

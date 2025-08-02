@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../api";
 import "../styles/budget.css";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -19,8 +19,8 @@ export default function BudgetingPage() {
 
   const fetchData = async () => {
     const [budgetsRes, transactionsRes] = await Promise.all([
-      axios.get("https://personal-finance-visualizer-api.onrender.com/api/budgets"),
-      axios.get("https://personal-finance-visualizer-api.onrender.com/api/transactions")
+      api.get("/budgets"),
+      api.get("/transactions")
     ]);
   
     const fetchedBudgets = budgetsRes.data;
@@ -71,7 +71,7 @@ export default function BudgetingPage() {
 
   const handleSave = async () => {
     const updated = { ...budgets, [selectedCategory]: Number(inputAmount) };
-    await axios.post("https://personal-finance-visualizer-api.onrender.com/api/budgets", updated);
+    await api.post("/budgets", updated);
     setInputAmount("");
     setSelectedCategory("Food");
     fetchData(); // refresh everything

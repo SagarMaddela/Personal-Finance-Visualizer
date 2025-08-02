@@ -1,15 +1,11 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import '../styles/chart.css';
 
-export default function ExpenseChart({ transactions }) {
-  const data = {};
-
-  transactions.forEach(tx => {
-    const month = new Date(tx.date).toLocaleString("default", { month: "short", year: "numeric" });
-    data[month] = (data[month] || 0) + tx.amount;
-  });
-
-  const chartData = Object.entries(data).map(([month, total]) => ({ month, total }));
+export default function ExpenseChart({ transactions, currentPage = 1, totalPages = 1, onPageChange }) {
+  const chartData = transactions.map(tx => ({ 
+    month: new Date(tx.date).toLocaleString("default", { month: "short", year: "numeric" }), 
+    total: tx.amount 
+  }));
 
   return (
     <div className="chart-container">
@@ -22,6 +18,29 @@ export default function ExpenseChart({ transactions }) {
           <Bar dataKey="total" fill="#2e86de" />
         </BarChart>
       </ResponsiveContainer>
+      
+      {/* Chart Pagination */}
+      {totalPages > 1 && (
+        <div className="chart-pagination">
+          <button 
+            onClick={() => onPageChange(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="pagination-btn"
+          >
+            Previous
+          </button>
+          <span className="page-info">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button 
+            onClick={() => onPageChange(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="pagination-btn"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
