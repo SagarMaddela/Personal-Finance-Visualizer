@@ -77,7 +77,6 @@ cd personal-finance-visualizer
 ```bash
 cd backend
 npm init -y
-npm install express mongoose cors dotenv
 # Create .env file with:
 # MONGO_URI = your_mongo_connection_string
 npm run dev
@@ -86,9 +85,8 @@ npm run dev
 ### 3. Frontend Setup
 
 ```bash
-cd ../clien
+cd ../client
 npm install
-npm install recharts axios react-router-dom
 npm run dev
 ```
 
@@ -97,7 +95,7 @@ npm run dev
 ## 📂 Folder Structure
 
 ```
-YardStick/
+Personal-Finance-Visualizer/
 ├─ backend/
 │  ├─ models/
 │  │  ├─ Budget.js

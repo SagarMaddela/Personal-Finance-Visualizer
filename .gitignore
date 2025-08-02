@@ -1,5 +1,8 @@
 node_modules/
 client/node_modules/
 backend/node_modules/
-
+Agent/_pycache/
+Agent/tools/__pycache__/
+*.pyc
+Agent/venv
 *.env
