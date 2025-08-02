@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
+import Loader from "../components/Loader";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "../styles/income.css";
 
@@ -17,6 +18,7 @@ export default function IncomePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [chartPage, setChartPage] = useState(1);
   const [editingData, setEditingData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [summary, setSummary] = useState({
     monthlyIncome: 0,
     yearlyIncome: 0,
@@ -36,12 +38,15 @@ export default function IncomePage() {
 
   const fetchIncomes = async () => {
     try {
+      setLoading(true);
       const res = await api.get("/transactions");
       // Filter only income transactions (negative amounts)
       const incomeTransactions = res.data.filter(tx => tx.amount < 0);
       setIncomes(incomeTransactions);
     } catch (error) {
       console.error("Error fetching incomes:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -182,6 +187,10 @@ export default function IncomePage() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentIncomes = incomes.slice(startIndex, endIndex);
+
+  if (loading) {
+    return <Loader size="large" text="Loading income data..." />;
+  }
 
   return (
     <div className="income-container">

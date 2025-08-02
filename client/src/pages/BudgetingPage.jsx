@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
+import Loader from "../components/Loader";
 import "../styles/budget.css";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -12,41 +13,49 @@ export default function BudgetingPage() {
   const [inputAmount, setInputAmount] = useState("");
   const [overspentInsights, setOverspentInsights] = useState([]);
   const [savedInsights, setSavedInsights] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const [budgetsRes, transactionsRes] = await Promise.all([
-      api.get("/budgets"),
-      api.get("/transactions")
-    ]);
-  
-    const fetchedBudgets = budgetsRes.data;
-    const transactions = transactionsRes.data;
-  
-    // Get current month and year
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-  
-    // Filter transactions for the current month
-    const monthlyTransactions = transactions.filter(txn => {
-      const txnDate = new Date(txn.date);
-      return txnDate.getMonth() === currentMonth && txnDate.getFullYear() === currentYear;
-    });
-  
-    // Calculate totals per category
-    const totals = {};
-    monthlyTransactions.forEach(txn => {
-      if (!totals[txn.category]) totals[txn.category] = 0;
-      totals[txn.category] += Number(txn.amount);
-    });
-  
-    setBudgets(fetchedBudgets);
-    setSpending(totals);
-    generateInsights(fetchedBudgets, totals);
+    try {
+      setLoading(true);
+      const [budgetsRes, transactionsRes] = await Promise.all([
+        api.get("/budgets"),
+        api.get("/transactions")
+      ]);
+    
+      const fetchedBudgets = budgetsRes.data;
+      const transactions = transactionsRes.data;
+    
+      // Get current month and year
+      const now = new Date();
+      const currentMonth = now.getMonth();
+      const currentYear = now.getFullYear();
+    
+      // Filter transactions for the current month
+      const monthlyTransactions = transactions.filter(txn => {
+        const txnDate = new Date(txn.date);
+        return txnDate.getMonth() === currentMonth && txnDate.getFullYear() === currentYear;
+      });
+    
+      // Calculate totals per category
+      const totals = {};
+      monthlyTransactions.forEach(txn => {
+        if (!totals[txn.category]) totals[txn.category] = 0;
+        totals[txn.category] += Number(txn.amount);
+      });
+    
+      setBudgets(fetchedBudgets);
+      setSpending(totals);
+      generateInsights(fetchedBudgets, totals);
+    } catch (error) {
+      console.error("Failed to fetch budget data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   
 
@@ -82,6 +91,10 @@ export default function BudgetingPage() {
     Budget: budgets[cat] || 0,
     Spending: spending[cat] || 0,
   }));
+
+  if (loading) {
+    return <Loader size="large" text="Loading budget data..." />;
+  }
 
   return (
     <div className="budget-container">

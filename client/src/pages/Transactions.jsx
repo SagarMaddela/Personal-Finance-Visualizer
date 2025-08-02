@@ -5,6 +5,7 @@ import ExpenseChart from "../components/ExpenseChart";
 import TransactionForm from "../components/TransactionForm";
 import SearchFilter from "../components/SearchFilter";
 import ReceiptUpload from "../components/ReceiptUpload";
+import Loader from "../components/Loader";
 import "../index.css";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
   const [editingData, setEditingData] = useState(null);
   const [chartPage, setChartPage] = useState(1);
   const [listPage, setListPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     category: "",
     startDate: "",
@@ -23,9 +25,16 @@ export default function Home() {
   const listItemsPerPage = 5; // Number of transactions to show per page
 
   const fetchTransactions = async () => {
-    const res = await api.get("/transactions");
-    setTransactions(res.data);
-    setFilteredTransactions(res.data);
+    try {
+      setLoading(true);
+      const res = await api.get("/transactions");
+      setTransactions(res.data);
+      setFilteredTransactions(res.data);
+    } catch (error) {
+      console.error("Failed to fetch transactions:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -83,6 +92,10 @@ export default function Home() {
   const startListIndex = (listPage - 1) * listItemsPerPage;
   const endListIndex = startListIndex + listItemsPerPage;
   const currentTransactions = filteredTransactions.slice(startListIndex, endListIndex);
+
+  if (loading) {
+    return <Loader size="large" text="Loading transactions..." />;
+  }
 
   return (
     <div className="container">

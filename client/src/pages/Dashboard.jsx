@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../api";
 import PieChart from "../components/PieChart";
 import { PieChart as RechartsPieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import Loader from "../components/Loader";
 import "../styles/dashboard.css";
 
 const EXPENSE_COLORS = ["#D32F2F","#E53935","#F44336","#EF5350","#E57373","#EF9A9A"];
@@ -11,15 +12,19 @@ const INCOME_COLORS = ["#388E3C","#43A047","#4CAF50","#66BB6A","#A5D6A7","#C8E6C
 function Dashboard() {
   const [transactions, setTransactions] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchTransactions() {
       try {
+        setLoading(true);
         const response = await api.get("/transactions");
         setTransactions(response.data);
       } catch (err) {
         setError("Failed to load transactions");
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -65,6 +70,10 @@ function Dashboard() {
     name: category,
     value: amount,
   }));
+
+  if (loading) {
+    return <Loader size="large" text="Loading dashboard..." />;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;

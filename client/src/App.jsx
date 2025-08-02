@@ -4,11 +4,12 @@ import TransactionsPage from "./pages/Transactions";
 import Navbar from "./components/Navbar";
 import BudgetingPage from "./pages/BudgetingPage";
 import IncomePage from "./pages/IncomePage";
+import { LoadingProvider } from "./context/LoadingContext";
 import "./App.css";
 
 function App() {
   return (
-    <>
+    <LoadingProvider>
       <Navbar />
       <div className="main-content">
         <Routes>
@@ -18,7 +19,7 @@ function App() {
           <Route path="/income" element={<IncomePage />} />
         </Routes>
       </div>
-    </>
+    </LoadingProvider>
   );
 }
 
