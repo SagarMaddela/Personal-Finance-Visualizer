@@ -11,7 +11,7 @@
 
   .transaction-list-container {
     overflow-y: scroll;
-    height: 92vh;
+    height: 100%;
     background-color: aliceblue;
   }
 
@@ -47,8 +47,22 @@
   .no-transactions {
     text-align: center;
     color: #666;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px dashed #dee2e6;
+  }
+
+  .no-transactions p {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+  }
+
+  .no-transactions-hint {
+    font-size: 0.9rem !important;
+    color: #999 !important;
     font-style: italic;
-    padding: 40px;
   }
 
   .list-pagination {
@@ -59,5 +73,31 @@
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid #e0e0e0;
+  }
+
+  .pagination-btn {
+    background: #2e86de;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .pagination-btn:hover:not(:disabled) {
+    background: #1e6bb8;
+  }
+
+  .pagination-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  .page-info {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
   }
   

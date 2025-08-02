@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DashboardPage from "./pages/Dashboard";
-import TransactionsPage from "./pages/Home"; 
+import TransactionsPage from "./pages/Transactions"; 
 import Navbar from "./components/Navbar";
 import BudgetingPage from "./pages/BudgetingPage";
 import IncomePage from "./pages/IncomePage";

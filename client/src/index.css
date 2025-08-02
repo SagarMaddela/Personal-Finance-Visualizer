@@ -24,7 +24,8 @@ h1, h2 {
 
 .left-container {
   width: 50%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 

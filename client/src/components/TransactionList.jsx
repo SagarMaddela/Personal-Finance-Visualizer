@@ -19,7 +19,10 @@ export default function TransactionList({
       <h2>Transactions</h2>
       <div className="transaction-list-container">
         {transactions.length === 0 ? (
-          <p className="no-transactions">No transactions found.</p>
+          <div className="no-transactions">
+            <p>No transactions found matching your search criteria.</p>
+            <p className="no-transactions-hint">Try adjusting your filters or adding new transactions.</p>
+          </div>
         ) : (
           transactions.map((txn) => (
             <div key={txn._id} className="transaction-item">
