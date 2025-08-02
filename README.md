@@ -119,6 +119,9 @@ Personal-Finance-Visualizer/
 │  ├─ .env
 │  ├─ main.py
 │  └─ requirements.txt
+|
+|
+|
 ├─ backend/
 │  ├─ models/
 │  │  ├─ Budget.js
@@ -133,9 +136,10 @@ Personal-Finance-Visualizer/
 │  ├─ package-lock.json
 │  ├─ package.json
 │  └─ server.js
+|
+|
+|
 ├─ client/
-│  ├─ public/
-│  │  └─ vite.svg
 │  ├─ src/
 │  │  ├─ assets/
 │  │  │  └─ react.svg
