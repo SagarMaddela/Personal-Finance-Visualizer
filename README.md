@@ -105,11 +105,12 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 # Create .env file with:
 # GEMINI_API_KEY=your_gemini_key
----
+```
 
 ## 📂 Folder Structure
 
-```
+
+```bash
 Personal-Finance-Visualizer/
 ├─ Agent/
 │  ├─ tools/
