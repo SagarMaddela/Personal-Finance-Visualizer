@@ -14,36 +14,42 @@ A full-stack web application that helps users track transactions, set budgets pe
 
 ---
 
-📌 Features
+✨ Features
 
-🔹 Dashboard Page
+Core Features
 
-🥧 Category-wise Pie Chart
+✅ Add income and expense entries
 
-🢾 Most Recent 5 Transactions
+✅ List all transactions in a given time range
 
-💸 Total Expenses (for the current month)
+✅ Filter and categorize transactions
 
-🔹 Transactions Page
-📊 Expense Line Chart
+✅ Visual graphs (e.g., Expenses by Category, Expenses by Date)
 
-➕ Add new transactions
+✅ Receipt upload (POS receipts in image or PDF format)
 
-📃 View all transactions
+Bonus Features (Implemented)
 
-🔹 Budgeting Page
+⭐ AI Agent that let's user speak to thier transactions
 
-📂 View and edit budgets by category
+⭐ Upload transaction history from tabular-format PDFs
 
-📈 Compare actual spending vs. budget
+⭐ Pagination support for list API
 
-💡 Insights on Overspending and Savings
 
-![alt dashboard](image-1.png)
 
-![alt Transactions](image-2.png)
 
-![alt Budgeting](image-3.png)
+
+
+![alt dashboard](image1.png)
+
+![alt Transactions](image2.png)
+
+![alt Budgeting](image3.png)
+
+![alt Income](image4.png)
+
+![alt AI Agent](image5.png)
 ---
 
 ## 💠 Tech Stack
@@ -89,21 +95,40 @@ cd ../client
 npm install
 npm run dev
 ```
+### 4. Agent Setup
 
+```bash
+cd ../Agent
+python -m venv venv
+venv/Scripts/Activate.ps1 #For powershell
+pip install -r requirements.txt
+uvicorn main:app --reload
+# Create .env file with:
+# GEMINI_API_KEY=your_gemini_key
 ---
 
 ## 📂 Folder Structure
 
 ```
 Personal-Finance-Visualizer/
+├─ Agent/
+│  ├─ tools/
+│  │  ├─ budget_tools.py
+│  │  └─ transaction_tools.py
+│  ├─ .env
+│  ├─ main.py
+│  └─ requirements.txt
 ├─ backend/
 │  ├─ models/
 │  │  ├─ Budget.js
 │  │  └─ Transaction.js
 │  ├─ routes/
 │  │  ├─ budjets.js
+│  │  ├─ receipts.js
 │  │  └─ transactions.js
+│  ├─ uploads/
 │  ├─ .env
+│  ├─ eng.traineddata
 │  ├─ package-lock.json
 │  ├─ package.json
 │  └─ server.js
@@ -115,26 +140,43 @@ Personal-Finance-Visualizer/
 │  │  │  └─ react.svg
 │  │  ├─ components/
 │  │  │  ├─ ExpenseChart.jsx
+│  │  │  ├─ Loader.jsx
 │  │  │  ├─ Navbar.jsx
 │  │  │  ├─ PieChart.jsx
+│  │  │  ├─ ReceiptUpload.jsx
+│  │  │  ├─ SearchFilter.jsx
 │  │  │  ├─ TransactionForm.jsx
-│  │  │  └─ TransactionList.jsx
+│  │  │  ├─ TransactionList.jsx
+│  │  │  └─ withLoading.jsx
+│  │  ├─ context/
+│  │  │  └─ LoadingContext.jsx
+│  │  ├─ hooks/
+│  │  │  └─ useLoading.js
 │  │  ├─ pages/
+│  │  │  ├─ Agent.jsx
 │  │  │  ├─ BudgetingPage.jsx
 │  │  │  ├─ Dashboard.jsx
-│  │  │  └─ Home.jsx
+│  │  │  ├─ IncomePage.jsx
+│  │  │  └─ Transactions.jsx
 │  │  ├─ styles/
+│  │  │  ├─ Agent.css
 │  │  │  ├─ budget.css
 │  │  │  ├─ chart.css
 │  │  │  ├─ dashboard.css
 │  │  │  ├─ form.css
+│  │  │  ├─ income.css
 │  │  │  ├─ list.css
-│  │  │  └─ navbar.css
+│  │  │  ├─ loader.css
+│  │  │  ├─ navbar.css
+│  │  │  ├─ receipt.css
+│  │  │  └─ search.css
 │  │  ├─ App.css
 │  │  ├─ App.jsx
 │  │  ├─ index.css
 │  │  └─ main.jsx
+│  ├─ .env
 │  ├─ .gitignore
+│  ├─ api.js
 │  ├─ eslint.config.js
 │  ├─ index.html
 │  ├─ package-lock.json
@@ -142,9 +184,14 @@ Personal-Finance-Visualizer/
 │  ├─ README.md
 │  └─ vite.config.js
 ├─ .gitignore
-├─ image.png
+├─ image1.png
+├─ image2.png
+├─ image3.png
+├─ image4.png
+├─ image5.png
 ├─ LICENSE
 └─ README.md
+
 
 ```
 
